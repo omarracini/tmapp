@@ -15,8 +15,8 @@ export default function Navbar() {
           exact to='/'
           className='nav-logo'
           >
-            Apni Coding
-            <i class="fa-solid fa-code"></i>
+            <i class="fa-solid fa-list-check" style={{color: "#47a969"}}></i>
+            Task Management
           </NavLink>
 
           <ul className={click ? "nav-menu active" : 'nav-menu'}>
@@ -45,24 +45,24 @@ export default function Navbar() {
 
             <li className="nav-item">
               <NavLink 
-              exact to ='/blog'
+              exact to ='/login'
               activeClassName = 'active'
               className='nav-links'
               onClick={handleClick}
               >
-                Blog
+                LogIn
               </NavLink>
             </li>
 
             <li className="nav-item">
               <NavLink 
-              exact to ='/contact'
+              exact to ='/registro'
               activeClassName = 'active'
               className='nav-links'
               onClick={handleClick}
               
               >
-                Contact US
+                Registro
               </NavLink>
             </li>
           </ul>
