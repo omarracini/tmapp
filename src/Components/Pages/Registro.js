@@ -1,5 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 
 const Registro = () => {
 
@@ -10,54 +12,44 @@ const Registro = () => {
 
   }
 
-  return <div className='container'>
-    <section className='vh-100 gradient-custom'>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="row justify-content-center mt-5 text-center">
-          <h2>REGISTRO</h2>
-          <p>Por favor, introduce tus datos para registrarte!</p>
-          <div>
-            <input type='text' {...register('nombre', {
-              required: true,
-              maxLength: 25
-            })}/>
-            <label>Nombre</label>
-            {errors.nombre?.type === 'required' && <p>Completa este campo</p>}
-          </div>
-          <div>
-            <input type='text' {...register('apellido', {
-              required: true,
-              maxLength: 25
-            })}/>
-            <label>Apellido</label>
-            {errors.apellido?.type === 'required' && <p>Completa este campo</p>}
-          </div>
-          <div>
-            <input type='text' {...register('correo', {
-              required: true,
-              pattern: /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/
-            })}/>
-            <label>Correo eléctronico</label>
-            {errors.correo?.type === 'required' && <p>Completa este campo</p>}
-            {errors.correo?.type === 'pattern' && <p>Ingresa un correo valido</p>}
-          </div>
-          <div>
-            <input type='text' {...register('contraseña', {
-              required: true
-            })}/>
-            <label>Contraseña</label>
-            {errors.contraseña?.type === 'required' && <p>Completa este campo</p>}
-          </div>
-          <div>
-            <label>Acepto términos y condiciones</label>
-            <input type='checkbox' {...register('t&c')}/>
-          </div>
-          <input type='submit' value='Registrarse'/>
-        </div>
-      </form>
-    </section>
-  </div>
+  return (
+    <Container className='vh-100 gradient-custom'>
+      <Row className="d-flex justify-content-center align-items-center h-100">
+        <Col xs={12} md={8} lg={6} xl={5}>
+          <Card bg='dark' text='white' className="p-4 text-center" style={{borderRadius: '1rem'}}>
+            <Card.Body className="mb-md-5 mt-md-4 pb-3">
+              <Card.Title className="fw-bold mb-2 text-uppercase">REGISTRO</Card.Title>
+              <Card.Text className="text-white-50 mb-5">Por favor, introduce tus datos para registrarte!</Card.Text>
+              <Form onSubmit={handleSubmit(onSubmit)}>
+                <Form.Group className="mb-4">
+                  <Form.Control type='text' {...register('nombre', { maxLength: 25 })} required placeholder="Nombre" />
+                </Form.Group>
+                <Form.Group className="mb-4">
+                  <Form.Control type='text' {...register('apellido', { maxLength: 25 })} required placeholder="Apellido" />
+                </Form.Group>
+                <Form.Group className="mb-4">
+                  <Form.Control type='text' {...register('correo', {
+                     pattern: {
+                      value: /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
+                      message: 'Ingresa un correo valido'
+                    }
+                  })} required placeholder="Correo eléctronico" />
+                  {errors.correo && <p>{errors.correo.message}</p>}
+                </Form.Group>
+                <Form.Group className="mb-4">
+                  <Form.Control type='password' {...register('contraseña')} required placeholder="Contraseña" />
+                </Form.Group>
+                <Form.Group className="mb-4">
+                  <Form.Check type="checkbox" label="Acepto términos y condiciones" {...register('t&c')} required />
+                </Form.Group>
+                <Button variant="outline-light" size="lg" block type="submit">Registrarse</Button>
+              </Form>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
+  );
 }
 
 export default Registro;
