@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
 import { Container, Row, Col, Card, CardText } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, fa1, fa2, fa3 } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, fa1, fa2, fa3, fa4 } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
+
   return (
     <Container className='vh-100 gradient-custom py-5 h-100'>
       <Card bg='dark' text='white' className="p-2" style={{borderRadius: '1rem'}} >  
@@ -23,13 +24,16 @@ export default function Home() {
               <Card.Title className="text-center">Checks</Card.Title>
               <Card.Body>
                 <CardText className='text-center'>
-                  <FontAwesomeIcon icon={faCheck} /> _______________________
+                  <FontAwesomeIcon icon={faCheck} /> __________________________________
                 </CardText>
                 <CardText className='text-center'>
-                  <FontAwesomeIcon icon={faCheck} /> _______________________
+                  <FontAwesomeIcon icon={faCheck} /> __________________________________
                 </CardText>
                 <CardText className='text-center'>
-                  <FontAwesomeIcon icon={faCheck} /> _______________________
+                  <FontAwesomeIcon icon={faCheck} /> __________________________________
+                </CardText>
+                <CardText className='text-center'>
+                  <FontAwesomeIcon icon={faCheck} /> __________________________________
                 </CardText>
               </Card.Body>
             </Card>
@@ -37,13 +41,16 @@ export default function Home() {
               <Card.Title className="text-center">Metas</Card.Title>
               <Card.Body>
                 <CardText className='text-center'>
-                  <FontAwesomeIcon icon={fa1} /> _______________________
+                  <FontAwesomeIcon icon={fa1} /> __________________________________
                 </CardText>
                 <CardText className='text-center'>
-                  <FontAwesomeIcon icon={fa2} /> _______________________
+                  <FontAwesomeIcon icon={fa2} /> __________________________________
                 </CardText>
                 <CardText className='text-center'>
-                  <FontAwesomeIcon icon={fa3} /> _______________________
+                  <FontAwesomeIcon icon={fa3} /> __________________________________
+                </CardText>
+                <CardText className='text-center'>
+                  <FontAwesomeIcon icon={fa4} /> __________________________________
                 </CardText>
               </Card.Body>
             </Card>
@@ -51,13 +58,19 @@ export default function Home() {
               <Card.Title className="text-center">Notas</Card.Title>
               <Card.Body>
                 <CardText className='text-center'>
-                  _______________________
+                  _________________________________
                 </CardText>
                 <CardText className='text-center'>
-                  _______________________
+                  _________________________________
                 </CardText>
                 <CardText className='text-center'>
-                  _______________________
+                  _________________________________
+                </CardText>
+                <CardText className='text-center'>
+                  _________________________________
+                </CardText>
+                <CardText className='text-center'>
+                  _________________________________
                 </CardText>
               </Card.Body>
             </Card>
