@@ -6,6 +6,7 @@ import About from "./Components/Pages/About";
 import Login from "./Components/Pages/LogIn";
 import Registro from "./Components/Pages/Registro";
 import Home from "./Components/Pages/Home";
+import { ProtectedRoute } from "./Components/Pages/ProtectedRoute";
 
 function App() {
   return (
@@ -15,7 +16,14 @@ function App() {
         <div className="pages">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
+            <Route 
+              path="/about" 
+              element={
+                <ProtectedRoute>
+                  <About />
+                </ProtectedRoute>
+              } 
+            />
             <Route path="/login" element={<Login />} />
             <Route path="/registro" element={<Registro />} />
           </Routes>

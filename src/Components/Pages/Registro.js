@@ -14,13 +14,13 @@ function Registro () {
 
   const { signup } = useAuth();
   const navigate = useNavigate();
-  const [error, setError] = useState('');
+  const [error, setError] = useState();
 
   const handleChange = ({target: {name, value}}) => {
     setUser({...user, [name]: value})
   }
 
-  const handleSubmit = async e =>{
+  const handleSubmit = async (e) =>{
     e.preventDefault();
     setError('')
     try {
@@ -34,6 +34,7 @@ function Registro () {
 
   return (
     <Container className='vh-100 gradient-custom py-5 h-100'>
+      {error && <text className='justify-text-center'>{error}</text>}
       <Row className="d-flex justify-content-center align-items-center h-100">
         <Col xs={12} md={8} lg={6} xl={5}>
           <Card bg='dark' text='white' className="p-4 text-center" style={{ borderRadius: '1rem' }}>
@@ -43,10 +44,15 @@ function Registro () {
               <Form onSubmit={handleSubmit}>
                 {/*
                 <Form.Group className="form-outline form-white mb-4">
-                  <Form.Control className="form-control form-control-lg" type='text' {...register('nombre', { maxLength: 25 })} required placeholder="Nombre" />
+                  <Form.Control 
+                    className="form-control form-control-lg" 
+                    type='text' {...register('nombre', { maxLength: 25 })} required placeholder="Nombre" />
                 </Form.Group>
-                <Form.Group className="form-outline form-white mb-4">
-                  <Form.Control className="form-control form-control-lg" type='text' {...register('apellido', { maxLength: 25 })} required placeholder="Apellido" />
+                <Form.Group 
+                  className="form-outline form-white mb-4">
+                  <Form.Control 
+                    className="form-control form-control-lg" 
+                    type='text' {...register('apellido', { maxLength: 25 })} required placeholder="Apellido" />
                 </Form.Group>
                 */}
                 <Form.Group className="form-outline form-white mb-4">

@@ -20,7 +20,7 @@ export default function Navbar() {
           </NavLink>
 
           <ul className={click ? "nav-menu active" : 'nav-menu'}>
-
+{/*
             <li className="nav-item">
               <NavLink 
               exact to ='/'
@@ -32,7 +32,7 @@ export default function Navbar() {
               </NavLink>
             </li>
 
-            <li className="nav-item">
+            <li className="nav-item" disable>
               <NavLink 
               exact to ='/about'
               activeClassName = 'active'
@@ -42,7 +42,7 @@ export default function Navbar() {
                 About
               </NavLink>
             </li>
-
+  */}
             <li className="nav-item">
               <NavLink 
               exact to ='/login'
