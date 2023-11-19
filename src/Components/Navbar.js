@@ -71,10 +71,6 @@ export default function Navbar() {
             {
               !click ?  <i className="fa-solid fa-bars"></i> : <i className="fa-regular fa-circle-xmark"></i>
             }
-          
-         
-
-          
 
           </div>
         </div>

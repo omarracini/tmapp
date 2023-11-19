@@ -6,6 +6,7 @@ import About from "./Components/Pages/About";
 import Login from "./Components/Pages/LogIn";
 import Registro from "./Components/Pages/Registro";
 import Home from "./Components/Pages/Home";
+import Create from "./Components/Pages/Create";
 import { ProtectedRoute } from "./Components/Pages/ProtectedRoute";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
               element={
                 <ProtectedRoute>
                   <About />
+                  <Create />
                 </ProtectedRoute>
               } 
             />
