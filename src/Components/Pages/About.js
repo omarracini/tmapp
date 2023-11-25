@@ -1,8 +1,10 @@
 
 import { useAuth } from '../../Context/authContext';
-import { Container, Card, Button, Row, Col, ListGroup } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPersonFromPortal } from '@fortawesome/free-solid-svg-icons';
+import { Container, Card, Button, Row, Col } from 'react-bootstrap';
+import Show from './Show';
+import Edit from './Edit';
+import Create from './Create';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 export default function About() {
 
@@ -13,6 +15,8 @@ export default function About() {
   };
 
   if (loading) return (<Card.Title className="fw-bold mb-2 ">Loading</Card.Title>)
+
+  
 
   return (
     <Container className='vh-100 gradient-custom py-5 h-100'>
@@ -34,23 +38,15 @@ export default function About() {
       </Card.Title>
         <Card bg='dark' text='white' className="p-4 text-center" style={{ borderRadius: '1rem' }}>
           <Card.Title className="fw-bold mb-2 text-uppercase">Lista de Tareas</Card.Title>
-{/*         
-          <Form.Group>
-            <Form.Label>Filtrar por Categoría o Etiqueta:</Form.Label>
-            <Form.Control as="select">
-              <option value="categoria1">Categoría 1</option>
-              <option value="categoria2">Categoría 2</option>
-              
-            </Form.Control>
-          </Form.Group>
-          <ProgressBar now={60} label={`${60}%`} />
-*/}          
-          <ListGroup className="mt-3">
-            <ListGroup.Item><a href="ver.html">Tarea 1</a></ListGroup.Item>
-            <ListGroup.Item><a href="ver.html">Tarea 2</a></ListGroup.Item>
-            <ListGroup.Item><a href="ver.html">Tarea 3</a></ListGroup.Item>
-            {/* Agrega más tareas aquí */}
-          </ListGroup>
+            
+            <BrowserRouter>
+              <Routes>
+                <Route path='/' element={ <Show /> } />
+                <Route path='/create' element={ <Create /> } />
+                <Route path='/edit/:id' element={ <Edit /> } />
+              </Routes>
+            </BrowserRouter>
+
           <Button href="Create.js" className="mt-3">Nueva Tarea</Button>
           <Button href="ver.html" className="mt-3">Ver Tarea</Button>
         </Card>
